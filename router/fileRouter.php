@@ -7,7 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     switch ($_GET["acao"]) {
         case 'salvarImagem':
             
-            
+            $uploaDir = "../public/uploads/";
+
+            if(!is_dir($uploaDir)){
+                mkdir($uploaDir,0777,true);
+            }
+            if(isset($_FILES["image"]))
             // $resultado = $fileController->SalvarImagem();
 
 
