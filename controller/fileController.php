@@ -19,9 +19,22 @@ class FileController{
                 return false;
             }
 
-        } catch (\Throwable $th) {
-            
+        } catch (\Exception $th) {
+            echo $th->getMessage();
         }
+
+    }
+
+    public function getAllImagem(){
+        try {
+        $sql = "SELECT * FROM imagens";
+        $db = $this-> conn-> Prepare($sql);
+        $db->execute();
+        $listaImagem = $db-> fetchAll(PDO::FETCH_ASSOC);
+        return$listaImagem;
+    } catch (\Exception $th) {
+        echo $th->getMessage();
+    }
 
     }
 }
